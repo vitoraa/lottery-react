@@ -1,8 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import web3 from './web3';
+import lottery from './lottery';
+import React, { useEffect } from 'react';
 
-async function App() {
+function App() {
+  useEffect(() => {
+    async function loadManager() {
+      const manager = await lottery.methods.manager().call();
+      console.log(manager);
+    };
+    loadManager();
+  });
+
   return (
     <div className="App">
       <header className="App-header">
